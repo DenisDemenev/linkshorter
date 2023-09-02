@@ -27,6 +27,12 @@ app.use(express.json());
 
 app.use(requestLogger);
 
+app.get("/", (req, res) => {
+  res.status(200).send({
+    message: "Привет",
+  });
+});
+
 app.post("/signin", signInValidation, login);
 app.get("/:code", redirectLink);
 
