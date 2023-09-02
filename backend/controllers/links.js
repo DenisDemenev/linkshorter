@@ -42,7 +42,7 @@ module.exports.redirectLink = async (req, res, next) => {
       return next(new NotFoundError("Такая ссылка не найдена."));
     }
     await redLink.update({ redirect: redLink.redirect + 1 });
-    res.send("Hello");
+    res.cookie("test", "abcde");
     res.redirect(redLink.link);
   } catch (err) {
     if (err.name === "CastError") {
